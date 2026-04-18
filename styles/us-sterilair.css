@@ -1,0 +1,262 @@
+@import url('theme.css');
+
+/* ============================================================
+   PRODUCT: SterilAir Shoe Deodorizer
+   Theme: Premium Wellness / Hygiene
+   ============================================================ */
+
+/* Global variable override */
+:root {
+  --bg-alt: #fdf8f3; 
+}
+
+/* Header customization for white logo */
+#header {
+    background: var(--dark) !important;
+    border-bottom: none !important;
+}
+
+.nav-links a {
+    color: #fff !important;
+}
+
+.nav-links a:hover {
+    color: var(--primary) !important;
+}
+
+/* Hero Section - FIXED DESKTOP LAYOUT */
+#hero {
+    background: radial-gradient(circle at 70% 50%, #fdf8f3 0%, #ffffff 100%);
+    padding: 100px 0;
+}
+
+.hero-inner {
+    display: grid !important;
+    grid-template-columns: 1.3fr 0.7fr !important;
+    grid-template-areas: 
+        "badge img"
+        "title img"
+        "text img" !important;
+    gap: 20px 80px !important;
+    align-items: center !important;
+}
+
+.hero-badge {
+    grid-area: badge;
+    width: fit-content;
+}
+
+.hero-h1 {
+    grid-area: title;
+    font-size: clamp(2.5rem, 4.5vw, 4rem) !important;
+    line-height: 1.1 !important;
+    font-weight: 900 !important;
+    color: var(--dark);
+    letter-spacing: -0.04em !important;
+    margin: 0 !important;
+}
+
+.hero-h1 .highlight {
+    color: var(--primary);
+}
+
+.hero-text-content {
+    grid-area: text;
+    max-width: 650px;
+}
+
+.hero-img-col {
+    grid-area: img;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-product-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));
+}
+
+.hero-subtext {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 30px 0;
+}
+
+/* Color sections */
+#features { background: #fdf8f3; }
+#trust { background: #fff; }
+#faq { background: #fdf8f3; }
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Side-by-side sections */
+.science-grid {
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr !important;
+    grid-template-areas: 
+        "label label"
+        "title title"
+        "text img" !important;
+    gap: 40px 80px !important;
+    align-items: center !important;
+    padding: 20px 0;
+}
+
+.section-label { grid-area: label; }
+.section-h2 { grid-area: title; margin-bottom: 40px !important; }
+.science-content-col { grid-area: text; }
+.science-img-col { grid-area: img; }
+
+#how-it-works .science-grid {
+    grid-template-areas: 
+        "label label"
+        "title title"
+        "img text" !important;
+}
+
+/* ——— Simple Footer ——— */
+#footer {
+    padding: 40px 0 !important;
+    background: var(--dark) !important;
+    color: rgba(255,255,255,0.6) !important;
+}
+
+.footer-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* ——— Legal Modals (Cookie Style) ——— */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10000;
+    display: none; /* Hidden by default */
+    justify-content: flex-end;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-drawer {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    background: #fff;
+    padding: 60px 40px;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark);
+}
+
+.modal-drawer h2 { margin-bottom: 30px; }
+.modal-drawer h3 { margin: 25px 0 10px; }
+.modal-drawer p { margin-bottom: 15px; line-height: 1.6; color: var(--text); }
+
+/* Mobile Adjustments (Title -> Image -> Text) */
+@media (max-width: 1000px) {
+    #hero { padding: 40px 0 !important; }
+
+    .hero-inner {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: 
+            "badge"
+            "title"
+            "img"
+            "text" !important;
+        text-align: center !important;
+        gap: 20px !important;
+    }
+    
+    .hero-badge { margin-inline: auto; }
+
+    .hero-h1 { font-size: 2.2rem !important; }
+
+    .hero-img-col { margin: 30px 0 !important; }
+
+    .science-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: "label" "title" "img" "text" !important;
+        text-align: center !important;
+    }
+
+    #how-it-works .science-grid { grid-template-areas: "label" "title" "img" "text" !important; }
+
+    .science-content-col { text-align: left !important; }
+
+    .footer-simple {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 20px;
+    }
+
+    .modal-drawer {
+        max-width: 100%;
+    }
+}
+
+/* Urgency bar */
+.urgency-bar {
+    background: #fff5f5;
+    border: 1px dashed #feb2b2;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #c53030;
+    font-weight: 700;
+}
